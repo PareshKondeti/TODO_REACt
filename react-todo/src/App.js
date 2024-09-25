@@ -1,10 +1,10 @@
 import './App.css';
 import TaskForm from "./TaskForm";
 import Task from "./Task";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks,setTasks] = useState([]);
 
   useEffect(() => {
     if (tasks.length === 0) return;
@@ -17,20 +17,14 @@ function App() {
   }, []);
 
   function addTask(name) {
-    
-    if (name.trim() === "") {
-      alert("Task name cannot be empty!"); 
-      return; 
-    }
-
     setTasks(prev => {
-      return [...prev, { name: name, done: false }];
+      return [...prev, {name:name,done:false}];
     });
   }
 
   function removeTask(indexToRemove) {
     setTasks(prev => {
-      return prev.filter((taskObject, index) => index !== indexToRemove);
+      return prev.filter((taskObject,index) => index !== indexToRemove);
     });
   }
 
@@ -46,7 +40,7 @@ function App() {
   const numberTotal = tasks.length;
 
   function getMessage() {
-    const percentage = numberComplete / numberTotal * 100;
+    const percentage = numberComplete/numberTotal * 100;
     if (percentage === 0) {
       return 'Try to do at least one! 🙏';
     }
@@ -56,24 +50,24 @@ function App() {
     return 'Keep it going 💪🏻';
   }
 
-  function renameTask(index, newName) {
+  function renameTask(index,newName) {
     setTasks(prev => {
       const newTasks = [...prev];
       newTasks[index].name = newName;
       return newTasks;
-    });
+    })
   }
 
   return (
     <main>
-      <h1>{numberComplete}/{numberTotal} Complete</h1>
+      <h1>TODO LIST</h1>
       <h2>{getMessage()}</h2>
       <TaskForm onAdd={addTask} />
-      {tasks.map((task, index) => (
+      {tasks.map((task,index) => (
         <Task {...task}
-          onRename={newName => renameTask(index, newName)}
-          onTrash={() => removeTask(index)}
-          onToggle={done => updateTaskDone(index, done)} />
+              onRename={newName => renameTask(index,newName)}
+              onTrash={() => removeTask(index)}
+              onToggle={done => updateTaskDone(index, done)} />
       ))}
     </main>
   );
