@@ -1,0 +1,126 @@
+body {
+    background-color: #141414;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+form {
+    border: none;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+form input[type="text"] {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus {
+    border-color: #61DAFB;
+    outline: none;
+}
+
+form button {
+    background-color: #E50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #f40612;
+}
+
+div.task {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s linear, transform 0.3s;
+    position: relative;
+}
+
+div.task:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+div.task.done {
+    opacity: 0.5;
+}
+
+div.task-name {
+    flex-grow: 1;
+}
+
+div.task span {
+    position: relative;
+}
+
+div.task span:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    background-color: #61DAFB;
+    position: absolute;
+    top: 50%;
+    transition: width 0.1s linear;
+}
+
+div.task.done span:before {
+    width: 100%;
+}
+
+div.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+button.trash {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button.trash svg {
+    fill: #888;
+    height: 20px;
+}
+
+div.task input {
+    border: 2px solid #555;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
